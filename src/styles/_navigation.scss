@@ -1,0 +1,33 @@
+header{
+    .headerNav{
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      background-color: rgb(235, 230, 224);
+      padding: 1rem;
+    }
+    ul{
+      display: flex;
+      gap:1rem;
+      list-style: none;
+      a{
+        color:black;
+        font-size: 1.1rem;
+        font-weight: bold;
+        text-transform: uppercase; 
+        &:hover{
+          cursor: pointer;
+          color:rgb(152, 105, 152);
+          &.active{
+            text-decoration: underline;
+          }
+
+        } 
+    }
+    }
+    
+  }
+  
+  
+  
+  
