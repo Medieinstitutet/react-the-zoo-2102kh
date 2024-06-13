@@ -1,0 +1,19 @@
+.pet-card{
+    ul{
+        display: grid;
+        grid-template-columns: auto auto auto;
+        list-style: none;
+        gap:2.5rem;
+        li{
+         border:1px solid grey;
+         text-align: center;
+         background-color: rgb(186, 244, 244);
+         padding: 0.5rem;
+        }
+        button{
+            padding:10px 30px;
+        }
+       
+    }
+   
+}

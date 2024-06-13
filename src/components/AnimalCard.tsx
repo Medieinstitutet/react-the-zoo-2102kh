@@ -8,7 +8,7 @@ export const AnimalCard=({data}:IPetDataProps)=>{
     return<>
     <div className="pet-card">
     <ul>
-        {data && data.map((pet)=>(
+    {data && data.map((pet)=>(
     <li key={pet.id}>
     <h2>{pet.name}</h2>
     <p><strong>Year of Birth:</strong>{pet.yearOfBirth}</p>
@@ -16,9 +16,11 @@ export const AnimalCard=({data}:IPetDataProps)=>{
     <p>{pet.shortDescription}</p>
     {/* <p>{pet.longDescription}</p> */}
     <h3>{pet.lastFed}</h3>
-  </li>
+    <button>Mata</button>
+    </li>
 )
 )}
+
      </ul>
     </div>
     </>
