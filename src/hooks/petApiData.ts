@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 export const petApiData=<T>(url: string):[boolean,T|undefined]=>{
     // eslint-disable-next-line react-hooks/rules-of-hooks
     const [data, setData]= useState<T>();
-    const[loading,setLoading] =useState(false);
+    const[loading, setLoading] =useState(false);
     
     useEffect(()=>{
         const getData= async()=>{
