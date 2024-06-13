@@ -1,5 +1,8 @@
 export const Home=()=>{
     return<>
-    <h1>Homepage</h1>
+    <div className="home-background">
+        <header></header>
+    <h1></h1>
+    </div>
     </>
 }

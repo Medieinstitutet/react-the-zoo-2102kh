@@ -3,10 +3,10 @@ import "./../styles/main.scss"
 
 export const Layout=()=>{
     return<>
+    <div className="app">
     <header>
-       
         <nav className="headerNav">
-        <h3>The Zoo</h3>
+        <h3>TheZoo</h3>
             <ul>
                 <li><NavLink to={'/home'}>Hem</NavLink></li>
                 <li><NavLink to={'/djur'}>Djur</NavLink></li>
@@ -17,6 +17,7 @@ export const Layout=()=>{
         <Outlet></Outlet>
     </main>
     <footer></footer>
+    </div>
 
     </>
 }
