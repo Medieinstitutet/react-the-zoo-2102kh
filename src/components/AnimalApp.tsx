@@ -1,6 +1,6 @@
 import { petApiData } from "../hooks/petApiData";
 import { IPets } from "../models/IPets";
-import { AnimalCard } from "./AnimalCard";
+import { AnimalPresentation } from "./AnimalPresentation";
 
 
 
@@ -13,7 +13,9 @@ console.log(data);
     return(
     <>
     {loading && <h1>Loading...</h1>}
-    <AnimalCard data ={data}/>
+    {!loading && data?(
+     <AnimalPresentation data ={data}/>
+    ):(!loading && <h1>No data available</h1>)}
     </>
     )
 }
