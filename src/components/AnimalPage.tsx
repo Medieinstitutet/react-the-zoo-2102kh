@@ -10,13 +10,16 @@ export const AnimalPage = ({ animal }: IAnimalPageProps) => {
 
   const[isFed, setIsFed] = useState(false);
   const [lastFed,setLastFed] = useState(animal.lastFed);
+  const [timeSinceFed, setTimeSinceFed] = useState(0);
+
+
   
   useEffect(()=>{
     const interval= setInterval(()=>{
       const currentTime=Date.now();
       const timeDiff = currentTime-lastFed;
       //console.log(timeDiff)
-      setLastFed(timeDiff);
+      setTimeSinceFed(timeDiff);
       const hoursSinceFed =timeDiff /(1000*60*60);
       if(hoursSinceFed >3){
         setIsFed(false);
@@ -29,24 +32,38 @@ export const AnimalPage = ({ animal }: IAnimalPageProps) => {
     const now= Date.now();
     setLastFed(now);
     setIsFed(true);
-  }
- 
- 
-  
+    const storedAnimals = JSON.parse(localStorage.getItem("animal")||"[]");
+    const updatedAnimals = storedAnimals.map((storedAnimal:IPets)=>storedAnimal.id ===animal.id? 
+  {...storedAnimal, isFed :true, lastFed: now}:storedAnimal);
+  localStorage.setItem("animal", JSON.stringify(updatedAnimals))
+  };
+   const formatTime = (time:number)=>{
+    const hours = Math.floor(time/(1000*60*60));
+    const minutes = Math.floor((time%(1000*60*60)) /(1000*60));
+    const seconds = Math.floor((time%(1000*60))/1000);
+    return `${hours}h ${minutes}m ${seconds}s`;
+   }
+
   return (
-    <div>
-      <h1>{animal.name}</h1>
+    <div className="pet-page">
+     
+      <div className="image-page">
       <img src={animal.imageUrl} alt={animal.name} width={700} height={650} />
+      </div>
+      <div className="petCard-info">
+      <h1>{animal.name}</h1>
       <p>{animal.longDescription}</p>
       <p><strong>Year of Birth:</strong> {animal.yearOfBirth}</p>
       <h3>Last Fed: {animal.lastFed}</h3>
-      {!isFed && <h2>{animal.name} behöver matas</h2>}
+      <p>Time since last fed: {formatTime(timeSinceFed)}</p>
+      {!isFed && <h2 className="mata">{animal.name} behöver matas</h2>}
       <button 
       onClick={handleFeed}
       disabled={animal.isFed}
-      style={{backgroundColor: isFed? 'green':'red' }}>
+      style={{backgroundColor: isFed? 'green':'red',color:'white' }}>
       {isFed? 'Matad': 'Mata Djuret'}
       </button>
+      </div>
     </div>
   );
 };

@@ -3,27 +3,32 @@
   display: flex;
   align-items: center;
   padding-left: 5%;
+  
  
-  box-shadow: 10px 20px 35px rgba(19, 0, 0, 0.2);
+   box-shadow: 10px 20px 35px rgba(19, 0, 0, 0.2);
   img{
     width:650px;
     height: 650px;
-    object-fit: cover;
+    
+    
    
   }
   .image-page{
    // background-color: rgb(255, 153, 0);
      padding: 2%;
-   
+     
     
-   
   } 
-  .petCard-info{
+.petCard-info{
  display: flex;
  flex-direction: column;
  padding: 5%;
-
-
+ text-align: center;
+ .mata{
+  text-decoration:overline;
+  color:rgb(225, 149, 7);
+  ;
+ }
  
  button{
     margin: 15px 20px;

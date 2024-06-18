@@ -11,6 +11,16 @@ export const AnimalPresentation = ({ data }: IPetDataProps) => {
   const [animals, setAnimals] = useState<IPets[]>(data);
   const navigate = useNavigate();
   const [timeSinceFed,setTimeSinceFed]= useState<{[key:number]:number}>({})//varje nyckeln presenterar att djurs id och värdet antalet av millisekunder
+  
+  useEffect(()=>{
+  const storedanimals = localStorage.getItem("animals");
+  if(storedanimals){
+     const savedAnimals =JSON.parse(storedanimals) as IPets[];
+     setAnimals(savedAnimals);
+  }else{
+     setAnimals(data);
+  }
+  },[data]);
 
   useEffect(()=>{
     const interval= setInterval(()=>{
@@ -35,7 +45,8 @@ export const AnimalPresentation = ({ data }: IPetDataProps) => {
     const updatedAnimals=animals.map((pet) =>
         pet.id === id ? { ...pet, isFed:true , lastFed:now } : pet
       )
-      setAnimals(updatedAnimals)
+      setAnimals(updatedAnimals);
+      localStorage.setItem("animals",JSON.stringify(updatedAnimals));
   };
 
   const onClickCard = (id: number) => {
@@ -67,7 +78,7 @@ export const AnimalPresentation = ({ data }: IPetDataProps) => {
                 backgroundColor: pet.isFed ? "green" : "red",
                 color: "white",
               }}
-              disabled={pet.isFed}
+              
             >
               {pet.isFed ? "Matad" : "Mata Djuren"}
             </button>
