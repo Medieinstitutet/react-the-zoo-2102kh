@@ -11,15 +11,20 @@
     .card{
         box-shadow: 10px 20px 35px rgba(19, 0, 0, 0.2);
          text-align: center;
-         //background-color:#c0c977;
+         //background-color:#c8d181;
          padding: 0.5rem;
          border-radius: 10px;
         
         &:hover{
             box-shadow: 10px 20px 35px rgba(18, 0, 0, 0.3);
             transform: translateY(-15px);
-    
+           
         }
+        .mata{
+            text-decoration:overline;
+            color:rgb(225, 149, 7);
+        }
+
         button{
             padding:10px 30px;
             background-color: red;
