@@ -14,10 +14,9 @@ export const AnimalPageWrapper = () => {
    useEffect(() => {
     const storedAnimals = localStorage.getItem("animals");
     if (storedAnimals) {
-      const animals = JSON.parse(storedAnimals) as IPets[];
-    
-      const foundAnimal = animals.find((animal) => animal.id === animalId);//hittar djuret baserat på id
-      setAnimal(foundAnimal || null);
+    const animals = JSON.parse(storedAnimals) as IPets[];
+    const foundAnimal = animals.find((animal) => animal.id === animalId);//hittar djuret baserat på id
+    setAnimal(foundAnimal || null);
     }
   }, [animalId]); 
 

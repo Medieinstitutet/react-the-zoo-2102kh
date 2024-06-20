@@ -18,15 +18,13 @@ export const AnimalPage = ({ animal }: IAnimalPageProps) => {
       setTimeSinceFed(timeDiff);
       const hoursSinceFed = timeDiff / (1000 * 60 * 60);
       if (hoursSinceFed > 1) {
-        setIsFed(false);
+      setIsFed(false);
       }
     }, 1000);
     return () => clearInterval(interval);
-  }, [lastFed]);
+    }, [lastFed]);
 
-  
-
-  const handleFeed = () => {
+    const handleFeed = () => {
     const now = Date.now();
     setLastFed(now);
     setIsFed(true);
@@ -59,8 +57,8 @@ export const AnimalPage = ({ animal }: IAnimalPageProps) => {
         <p>
           <strong>Year of Birth:</strong> {animal.yearOfBirth}
         </p>
-        <h3>Last Fed: {new Date(lastFed).toLocaleString()}</h3>
-        <p>Tid sedan senaste matning: {formatTime(timeSinceFed)}</p>
+        <h3>Senast matad: {new Date(lastFed).toLocaleString()}</h3>
+        <p style={{display:isFed ?'block':'none'}}>Tid sedan senaste matning: {formatTime(timeSinceFed)}</p>
         {!isFed && <h2 className="mata">{animal.name} behöver matas</h2>}
         <button
           onClick={handleFeed}

@@ -22,25 +22,20 @@ export const AnimalPresentation = ({ data }: IPetDataProps) => {
       setAnimals(data);
     }
   }, [data]);
-
-
+  
   useEffect(() => {
     const interval = setInterval(() => {
       const now = Date.now();
-  
-    
       const updatedTimeSinceFed: { [key: number]: number } = {};
-  
       const updatedAnimals = animals.map(animal => {
-        const timeDiff = now - animal.lastFed;
-        updatedTimeSinceFed[animal.id] = timeDiff;
+      const timeDiff = now - animal.lastFed;
+      updatedTimeSinceFed[animal.id] = timeDiff;
   
-        if (timeDiff / (1000 * 60 * 60) > 3) {
-          return { ...animal, isFed: false };
-        }
+      if (timeDiff / (1000 * 60 * 60) > 3) {
+        return { ...animal, isFed: false };
+      }
         return animal;
       });
-  
       setTimeSinceFed(updatedTimeSinceFed);
       setAnimals(updatedAnimals);
     }, 1000);
@@ -52,7 +47,7 @@ export const AnimalPresentation = ({ data }: IPetDataProps) => {
   const onClickPet = (id: number) => {
     const now = Date.now();
     const updatedAnimals = animals.map((pet) =>
-      pet.id === id ? { ...pet, isFed: true, lastFed: now } : pet
+    pet.id === id ? { ...pet, isFed: true, lastFed: now } : pet
     );
     setAnimals(updatedAnimals);
     localStorage.setItem("animals", JSON.stringify(updatedAnimals));
@@ -82,32 +77,36 @@ export const AnimalPresentation = ({ data }: IPetDataProps) => {
         {animals.map((pet) => (
           <li className="card" key={pet.id}>
             {needToFeed(pet.lastFed) > 1 && !pet.isFed && (
-              <div className="mata"><h3>{pet.name} behöver matas!</h3></div>
+            <div className="mata"><h3>{pet.name}
+             behöver matas!</h3></div>
             )}
-
             <div onClick={() => onClickCard(pet.id)}>
               <h2>{pet.name}</h2>
               <img src={pet.imageUrl} alt={pet.name} className="pet-image" />
+              <div className="card-info" >
               <p>
-                <strong>Year of Birth: </strong>
-                {pet.yearOfBirth}
+              <strong>Year of Birth: </strong>
+              {pet.yearOfBirth}
               </p>
               <p>{pet.shortDescription}</p>
-              <h3>{new Date(pet.lastFed).toLocaleString()}</h3>
-              <p>
-                Tid sedan senaste matning:{formatTime(timeSinceFed[pet.id])}
+              <h4>Senast matad: {new Date(pet.lastFed).toLocaleString()}</h4>
+              <p style={{display:pet.isFed ? 'block': 'none'}}>
+               Tid sedan senaste matning: {formatTime(timeSinceFed[pet.id])}
               </p>
-            </div>
-            <button
+              </div>
+              </div>
+              <div className="fedButton">
+              <button
               onClick={() => onClickPet(pet.id)}
               disabled={pet.isFed}
               style={{
-                backgroundColor: pet.isFed ? "green" : "red",
-                color: "white",
+              backgroundColor: pet.isFed ? "green" : "red",
+              color: "white",
               }}
-            >
+              >
               {pet.isFed ? "Matad" : "Mata Djuren"}
             </button>
+            </div>
           </li>
         ))}
       </ul>

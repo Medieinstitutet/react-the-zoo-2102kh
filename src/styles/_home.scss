@@ -1,12 +1,41 @@
-.home-background{
-//background-image: url('/src/img/1.jpg');
-width: 100vw;
-height: 100vh;
-background-size:cover;
-}
-.pet-image{
-    width: 250px;
-    height: 300px;
-    object-fit: contain;
-   
-}
+
+        .pet-image{
+            width: 250px;
+            height: 300px;
+            object-fit: contain;
+           
+        }
+        .home-background {
+            position: relative;
+            max-width: 100%;
+            height: 100vh;
+            overflow: hidden;
+            z-index: 0;
+            .video-player {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                z-index: -1;
+            }
+            video {
+                object-fit: cover; 
+                height: 100%;
+                width: 100%;
+            }
+        }
+        
+        .app {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+          }
+            
+        main {
+            flex: 1;
+          }
+            
+       
+       
+          

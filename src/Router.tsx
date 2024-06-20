@@ -3,15 +3,16 @@ import { Layout } from './pages/Layout';
 import { Home } from './pages/Home';
 import { NotFound } from './pages/NotFound';
 import { AnimalApp } from './components/AnimalApp';
-import { AnimalPageWrapper } from './components/AnimalPagewrapper';
+import { AnimalPageWrapper } from './components/AnimalPageWrapper';
 export const router = createBrowserRouter([
     {
         path:'/',
-        element:<Layout></Layout>,
+        element:<Layout>
+        </Layout>,
         children: [
             {
                 path:'/home',
-                element:<Home></Home>
+                element: <Home/>
             },
             {
                 path:'/djur',
@@ -24,6 +25,6 @@ export const router = createBrowserRouter([
                     }
                     ],
                     errorElement:<NotFound/>
-        }    
+               }    
               ]    
             )

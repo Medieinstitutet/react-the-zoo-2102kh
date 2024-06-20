@@ -1,24 +1,26 @@
 .pet-card{
    
-    
-   
     ul{
         display: grid;
         grid-template-columns: auto auto auto ;
         list-style: none;
-        gap:2.5rem;
+        gap:2rem;
 
     .card{
+        display: grid;
+        grid-template-rows:auto 1fr auto ;
         box-shadow: 10px 20px 35px rgba(19, 0, 0, 0.2);
          text-align: center;
-         //background-color:#c8d181;
+         background-color:#c8d181;
          padding: 0.5rem;
          border-radius: 10px;
-        
+         cursor: pointer;
         &:hover{
             box-shadow: 10px 20px 35px rgba(18, 0, 0, 0.3);
-            transform: translateY(-15px);
+            transform: translateY(-5px);
            
+        }
+        .card-info{
         }
         .mata{
             text-decoration:overline;
@@ -31,15 +33,15 @@
             color:#222422;
             border: 0;
             box-shadow: 1px 3px 5px rgb(133, 123, 123);
-        }
-        .pet-image{
-            width: 230px;
-            height: 200px;
-            object-fit: contain;
            
-        }  
         }
-       
-    }
+        .fedButton{
+            align-self: flex-end;
+            margin-bottom: 1rem;  
+        }
+        
+        }
    
-}
+       }
+   
+     }
