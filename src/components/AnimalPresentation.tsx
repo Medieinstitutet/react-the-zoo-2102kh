@@ -10,7 +10,7 @@ export const AnimalPresentation = ({ data }: IPetDataProps) => {
   const [animals, setAnimals] = useState<IPets[]>(data);
   const navigate = useNavigate();
   const [timeSinceFed, setTimeSinceFed] = useState<{ [key: number]: number }>({}); //varje nyckeln presenterar att djurs id och värdet antalet av millisekunder
-  const [imageError, setImageError] = useState({});
+  const [imageError, setImageError] = useState<{ [key: number]: boolean }>({});
   
   useEffect(() => {
     const storedanimals = localStorage.getItem("animals");
@@ -88,7 +88,7 @@ export const AnimalPresentation = ({ data }: IPetDataProps) => {
             <div onClick={() => onClickCard(pet.id)}>
               <h2>{pet.name}</h2>
               <div className="pet-image">
-              {imageError[pet.id]=== undefined ? (
+              {!imageError[pet.id] ? (
                 <img
                src={pet.imageUrl}
                alt={pet.name} 
