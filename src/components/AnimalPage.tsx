@@ -9,6 +9,7 @@ export const AnimalPage = ({ animal }: IAnimalPageProps) => {
   const [isFed, setIsFed] = useState(animal.isFed);
   const [lastFed, setLastFed] = useState(animal.lastFed);
   const [timeSinceFed, setTimeSinceFed] = useState(0);
+  const [imageError, setImageError] = useState<{ [key: number]: boolean }>({});
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -45,11 +46,25 @@ export const AnimalPage = ({ animal }: IAnimalPageProps) => {
     const seconds = Math.floor((time % (1000 * 60)) / 1000);
     return `${hours}h ${minutes}m ${seconds}s`;
   };
-
+  const handleImageError = () => {
+    setImageError((image) => ({
+      ...image,
+      [animal.id]: true,
+    }));
+  };
   return (
     <div className="pet-page">
       <div className="image-page">
-        <img src={animal.imageUrl} alt={animal.name} width={700} height={650} />
+        {imageError[animal.id]===undefined ? (
+        <img 
+        src={animal.imageUrl}
+        alt={animal.name} 
+        
+        onError ={handleImageError} />
+        ): (
+          <p>Bilden är för närvarande inte tillgänglig</p>
+        )
+      }  
       </div>
       <div className="petCard-info">
         <h1>{animal.name}</h1>
@@ -63,8 +78,7 @@ export const AnimalPage = ({ animal }: IAnimalPageProps) => {
         <button
           onClick={handleFeed}
           disabled={animal.isFed}
-          style={{ backgroundColor: isFed ? "green" : "red", color: "white" }}
-        >
+          style={{ backgroundColor: isFed ? "green" : "red", color: "white" }}>
           {isFed ? "Matad" : "Mata Djuret"}
         </button>
       </div>

@@ -5,7 +5,7 @@ import { AnimalPresentation } from "./AnimalPresentation";
 
 export const AnimalApp = () => {
   const [loading, data] = petApiData<IPets[]>("https://animals.azurewebsites.net/api/animals");
-
+  
   if (loading) {
     return <h1>Loading...</h1>;
   }

@@ -6,8 +6,9 @@
   position: absolute;
   top: 0;
   left: 0;
-  background: rgba(68, 66, 66, 0.5); 
-  opacity: 0.5;
+  //background: rgba(19, 86, 59, 0.5); 
+  background: #407022;
+  opacity: 0.8;
   z-index: 100;
   color: #fff;
   align-self: center;
@@ -29,11 +30,11 @@
   }
   & ul a:hover {
     cursor: pointer;
-    color: rgb(195, 133, 195);
+    color: rgb(232, 142, 232);
   }
   & ul a.active {
     text-decoration: underline;
-    color: rgb(217, 132, 217);
+    color: rgb(202, 73, 202);
   }
   
 }

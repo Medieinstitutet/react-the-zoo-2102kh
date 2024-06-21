@@ -9,10 +9,9 @@ interface IPetDataProps {
 export const AnimalPresentation = ({ data }: IPetDataProps) => {
   const [animals, setAnimals] = useState<IPets[]>(data);
   const navigate = useNavigate();
-  const [timeSinceFed, setTimeSinceFed] = useState<{ [key: number]: number }>(
-    {}
-  ); //varje nyckeln presenterar att djurs id och värdet antalet av millisekunder
-
+  const [timeSinceFed, setTimeSinceFed] = useState<{ [key: number]: number }>({}); //varje nyckeln presenterar att djurs id och värdet antalet av millisekunder
+  const [imageError, setImageError] = useState({});
+  
   useEffect(() => {
     const storedanimals = localStorage.getItem("animals");
     if (storedanimals) {
@@ -70,7 +69,13 @@ export const AnimalPresentation = ({ data }: IPetDataProps) => {
   const onClickCard = (id: number) => {
     navigate(`/djur/djurcard/${id}`, { state: { data } });
   };
-
+  
+  const handleImageError = (id: number) => {
+    setImageError((obj) => ({
+      ...obj,[id]: true,
+    }));
+  };
+  
   return (
     <div className="pet-card">
       <ul>
@@ -82,7 +87,16 @@ export const AnimalPresentation = ({ data }: IPetDataProps) => {
             )}
             <div onClick={() => onClickCard(pet.id)}>
               <h2>{pet.name}</h2>
-              <img src={pet.imageUrl} alt={pet.name} className="pet-image" />
+              <div className="pet-image">
+              {imageError[pet.id]=== undefined ? (
+                <img
+               src={pet.imageUrl}
+               alt={pet.name} 
+               className="pet-img" 
+               onError={()=>handleImageError(pet.id)}/>)
+              : (<p> Bilden är för närvarande inte tillgängligt</p>
+              )}
+              </div>
               <div className="card-info" >
               <p>
               <strong>Year of Birth: </strong>
