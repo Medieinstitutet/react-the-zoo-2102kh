@@ -1,5 +1,6 @@
 .pet-card{
    margin: 9vh 3vh 2vh 1vh;
+   font-size: 1.2rem;
     ul{
         display: grid;
         grid-template-columns: auto auto auto ;
@@ -10,10 +11,10 @@
         display: grid;
         grid-template-rows:auto 1fr auto ;
         box-shadow: 10px 20px 35px rgba(19, 0, 0, 0.2);
-         text-align: center;
-         //background-color:#c8d181;
-         padding: 1.5rem;
-         border-radius: 10px;
+        text-align: center;
+        //background-color:#c8d181;
+        padding: 1.5rem;
+        border-radius: 10px;
          cursor: pointer;
         &:hover{
             box-shadow: 10px 20px 35px rgba(18, 0, 0, 0.3);
@@ -77,3 +78,5 @@
    
      
      
+
+      

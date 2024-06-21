@@ -8,7 +8,7 @@ export const Home=()=>{
       </video>
     </div>
     <div className="home-text"><h3>
-Välkommen till The Zoo, där ditt äventyr börjar med att ta hand om våra fantastiska djur! 
+Välkommen till <h1>The Zoo</h1> Där ditt äventyr börjar med att ta hand om våra fantastiska djur! 
 Följ med oss och hjälp till att mata djuren när de är hungriga, så att de förblir glada och friska. Utforska djurparken, 
 lär dig om olika arter och se till att varje djur får rätt mat vid rätt tidpunkt. Ditt uppdrag som djurvårdare börjar nu!</h3>
     </div>
