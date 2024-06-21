@@ -18,7 +18,7 @@ export const AnimalPage = ({ animal }: IAnimalPageProps) => {
       //console.log(timeDiff)
       setTimeSinceFed(timeDiff);
       const hoursSinceFed = timeDiff / (1000 * 60 * 60);
-      if (hoursSinceFed > 1) {
+      if (hoursSinceFed > 3) {
       setIsFed(false);
       }
     }, 1000);
