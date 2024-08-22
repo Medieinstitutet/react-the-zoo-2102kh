@@ -82,18 +82,17 @@ export const AnimalPresentation = ({ data }: IPetDataProps) => {
         {animals.map((pet) => (
           <li className="card" key={pet.id}>
             {needToFeed(pet.lastFed) > 1 && !pet.isFed && (
-            <div className="mata"><h3>{pet.name}
-             behöver matas!</h3></div>
-            )}
-            <div onClick={() => onClickCard(pet.id)}>
+            <div className="mata"><h3>{pet.name} behöver matas!</h3></div>
+             )}
+             <div onClick={() => onClickCard(pet.id)}>
               <h2>{pet.name}</h2>
               <div className="pet-image">
               {!imageError[pet.id] ? (
-                <img
-               src={pet.imageUrl}
-               alt={pet.name} 
-               className="pet-img" 
-               onError={()=>handleImageError(pet.id)}/>)
+              <img
+              src={pet.imageUrl}
+              alt={pet.name} 
+              className="pet-img" 
+              onError={()=>handleImageError(pet.id)}/>)
               : (<p> Bilden är för närvarande inte tillgängligt</p>
               )}
               </div>
@@ -105,7 +104,7 @@ export const AnimalPresentation = ({ data }: IPetDataProps) => {
               <p>{pet.shortDescription}</p>
               <h4>Senast matad: {new Date(pet.lastFed).toLocaleString()}</h4>
               <p style={{display:pet.isFed ? 'block': 'none'}}>
-               Tid sedan senaste matning: {formatTime(timeSinceFed[pet.id])}
+              Tid sedan senaste matning: {formatTime(timeSinceFed[pet.id])}
               </p>
               </div>
               </div>

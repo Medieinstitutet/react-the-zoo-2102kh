@@ -3,15 +3,17 @@
   width: 100%;
   display: flex;
   justify-content: space-between;
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   //background: rgba(19, 86, 59, 0.5); 
   background: #407022;
   opacity: 0.8;
-  z-index: 100;
+  z-index: 1000;
   color: #fff;
   align-self: center;
+
+  
   & h3 {
     margin-left: 6rem;
     font-size: 1.3rem;
@@ -35,6 +37,38 @@
   & ul a.active {
     text-decoration: underline;
     color: rgb(202, 73, 202);
+  }
+  
+}
+@media screen and (max-width: 768px) {
+  .headerNav {
+    
+    & h3 {
+    margin-left: 3rem; 
+   
+    }
+    & ul {
+      margin-right: 3rem;
+      margin-top: 1rem;
+    }
+    & ul a {
+      font-size: 1.1rem;
+    }
+  }
+  
+}
+@media screen and (max-width: 500px) {
+  .headerNav {
+    & h3 {
+      margin-left: 1rem;
+      font-size: 1.1rem;
+    }
+    & ul {
+      margin-right: 1rem;
+    }
+    & ul a {
+      font-size: 1rem;
+    }
   }
   
 }

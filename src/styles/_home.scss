@@ -50,5 +50,53 @@
           }
             
        
-       
-          
+  @media screen and (max-width: 768px) {
+    .home-background {
+      .home-text {
+        margin-top: 10%;
+        width: 65%;
+        height: 40%;
+        padding-bottom: 10%;
+
+                font-size: large;
+                font-weight: 500;
+                background: rgb(39, 38, 38);
+                opacity: 0.5;
+                line-height: 1.1;
+                
+                padding: 3rem;
+                border-radius: 10px;
+                z-index: 1;
+                text-align: center;
+                h1{
+                    font-size: 1.9rem;
+                }
+      }
+    }
+    @media screen and (max-width: 450px){
+        .home-background {
+            .home-text {
+              margin-top: 25%;
+              width: 65%;
+              height: 65%;
+              //padding-bottom: 10%;
+      
+                      font-size: medium;
+                      font-weight: 400;
+                      background: rgb(39, 38, 38);
+                      opacity: 0.5;
+                      line-height: 1.1;
+                      
+                      padding:   1.5rem;
+                      border-radius: 10px;
+                      z-index: 1;
+                      text-align: center;
+                      h1{
+                          font-size: 1.9rem;
+                      }
+            }}
+
+    }};
+        
+    
+  

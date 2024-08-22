@@ -64,24 +64,34 @@ export const AnimalPage = ({ animal }: IAnimalPageProps) => {
         ): (
           <p>Bilden är för närvarande inte tillgänglig</p>
         )
-      }  
-      </div>
+      } 
+      
+      
+        </div>
+     
       <div className="petCard-info">
         <h1>{animal.name}</h1>
-        <p>{animal.longDescription}</p>
         <p>
-          <strong>Year of Birth:</strong> {animal.yearOfBirth}
+        <strong>Year of Birth:</strong> {animal.yearOfBirth}
         </p>
+        <p>{animal.longDescription}</p>
+        <div className="food-info">
         <h3>Senast matad: {new Date(lastFed).toLocaleString()}</h3>
         <p style={{display:isFed ?'block':'none'}}>Tid sedan senaste matning: {formatTime(timeSinceFed)}</p>
         {!isFed && <h2 className="mata">{animal.name} behöver matas</h2>}
-        <button
+        </div>
+     
+       
+         <button
           onClick={handleFeed}
           disabled={animal.isFed}
           style={{ backgroundColor: isFed ? "green" : "red", color: "white" }}>
           {isFed ? "Matad" : "Mata Djuret"}
         </button>
-      </div>
+        </div>
+        
+      
+      
     </div>
   );
 };
